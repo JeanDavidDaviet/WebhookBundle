@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WebhookSubscriber{% endblock %}
+
+{% block body %}
+    <h1>WebhookSubscriber</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ webhook_subscriber.id }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ webhook_subscriber.url }}</td>
+            </tr>
+            <tr>
+                <th>Secret</th>
+                <td>{{ webhook_subscriber.secret }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('jdd_webhook_subscriber_index') }}">back to list</a>
+
+    <a href="{{ path('jdd_webhook_subscriber_edit', {'id': webhook_subscriber.id}) }}">edit</a>
+
+    {{ include('@Webhook/crud/_delete_form.html.twig') }}
+{% endblock %}

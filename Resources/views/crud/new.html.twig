@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New WebhookSubscriber{% endblock %}
+
+{% block body %}
+    <h1>Create new WebhookSubscriber</h1>
+
+    {{ include('@Webhook/crud/_form.html.twig') }}
+
+    <a href="{{ path('jdd_webhook_subscriber_index') }}">back to list</a>
+{% endblock %}

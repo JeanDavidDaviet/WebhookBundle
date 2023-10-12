@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit WebhookSubscriber{% endblock %}
+
+{% block body %}
+    <h1>Edit WebhookSubscriber</h1>
+
+    {{ include('@Webhook/crud/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('jdd_webhook_subscriber_index') }}">back to list</a>
+
+    {{ include('@Webhook/crud/_delete_form.html.twig') }}
+{% endblock %}

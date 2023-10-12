@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WebhookSubscriber index{% endblock %}
+
+{% block body %}
+    <h1>WebhookSubscriber index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Secret</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for webhook_subscriber in webhook_subscribers %}
+            <tr>
+                <td>{{ webhook_subscriber.id }}</td>
+                <td>{{ webhook_subscriber.url }}</td>
+                <td>{{ webhook_subscriber.secret }}</td>
+                <td>
+                    <a href="{{ path('jdd_webhook_subscriber_show', {'id': webhook_subscriber.id}) }}">show</a>
+                    <a href="{{ path('jdd_webhook_subscriber_edit', {'id': webhook_subscriber.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('jdd_webhook_subscriber_new') }}">Create new</a>
+{% endblock %}
