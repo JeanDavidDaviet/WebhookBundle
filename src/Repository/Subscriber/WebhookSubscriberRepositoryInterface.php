@@ -8,4 +8,5 @@ use Doctrine\Persistence\ManagerRegistry;
 
 interface WebhookSubscriberRepositoryInterface
 {
+    public function find(int $id): ?WebhookSubscriberInterface;
 }

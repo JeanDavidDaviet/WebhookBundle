@@ -1,0 +1,13 @@
+services:
+    webhook_notifier:
+        class: Jeandaviddaviet\WebhookBundle\Services\WebhookNotifier
+        arguments:
+            - "@messenger.default_bus"
+#            - "@webhook_subscriber_repository"
+            - "@serializer.normalizer.object"
+
+    Jeandaviddaviet\WebhookBundle\Listener\WebhookDoctrineOnFlushListener:
+        arguments:
+            - "@webhook_notifier"
+        tags:
+            - { name: doctrine.event_subscriber }
